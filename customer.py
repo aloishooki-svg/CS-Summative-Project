@@ -7,4 +7,5 @@ class Customer:
         self.email = email
         self.driver_license = driver_license
 # Phone number and email are kept separate so that each can be validated and displayed independently. 
+# The customer class also does not contain the list of rented vehicles, as this information can be found in the rental class.
 
