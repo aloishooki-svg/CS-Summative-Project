@@ -16,7 +16,7 @@ class RentalSystem:
         self.load_data()
 
     # FILE HANDLING
-    
+
     def save_data(self):
         # Save vehicles
         v_list = []
@@ -76,7 +76,8 @@ class RentalSystem:
             pass
 
     # HELPER FUNCTIONS
-     # I added these to make searching easier and keep the main code clean
+
+    # I added these to make searching easier and keep the main code clean
     def get_vehicle_by_id(self, v_id):
         for v in self.vehicles:
             if v.vehicle_id == v_id:
@@ -91,6 +92,7 @@ class RentalSystem:
 
 
     # CORE FEATURES
+
     def add_vehicle(self):
         print("\n--- Add a New Vehicle ---")
         v_id = input("Enter Vehicle ID: ")
@@ -138,8 +140,7 @@ class RentalSystem:
         
         found = False
         for v in self.vehicles:
-            if v.vehicle_id == search_term or v.registration == search_term:
-                v.display_details()
+            if v.search_for_vehicle(search_term):
                 found = True
                 
         if not found:
@@ -257,8 +258,9 @@ class RentalSystem:
                 
         if count == 0:
             print("There are no active rentals right now.")
-            
+
 # MAIN MENU LOOP
+
 def main():
     # Set up our application
     app = RentalSystem()
