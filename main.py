@@ -259,50 +259,49 @@ class RentalSystem:
         if count == 0:
             print("There are no active rentals right now.")
 
-# MAIN MENU LOOP
+# Main program loop
 
-def main():
-    # Set up our application
-    app = RentalSystem()
+# Set up our application 
+app = RentalSystem()
+
+# Keep showing the menu until the user wants to exit
+while True:
+    print(" VEHICLE RENTAL SYSTEM")
+    print("1. Add Vehicle")
+    print("2. Display All Vehicles")
+    print("3. Search for a Vehicle")
+    print("4. Register Customer")
+    print("5. Display Customers")
+    print("6. Rent a Vehicle")
+    print("7. Return a Vehicle")
+    print("8. Display Active Rentals")
+    print("9. Save Data")
+    print("10. Exit")
     
-    # Keep showing the menu until the user wants to exit
-    while True:
-        print("    VEHICLE RENTAL SYSTEM")
-        print("1. Add Vehicle")
-        print("2. Display All Vehicles")
-        print("3. Search for a Vehicle")
-        print("4. Register Customer")
-        print("5. Display Customers")
-        print("6. Rent a Vehicle")
-        print("7. Return a Vehicle")
-        print("8. Display Active Rentals")
-        print("9. Save Data")
-        print("10. Exit")
-        
-        choice = input("\nEnter your choice (1-10): ")
-        
-        if choice == '1':
-            app.add_vehicle()
-        elif choice == '2':
-            app.display_vehicles()
-        elif choice == '3':
-            app.search_vehicle()
-        elif choice == '4':
-            app.register_customer()
-        elif choice == '5':
-            app.display_customers()
-        elif choice == '6':
-            app.rent_vehicle()
-        elif choice == '7':
-            app.return_vehicle()
-        elif choice == '8':
-            app.display_active_rentals()
-        elif choice == '9':
-            app.save_data()
-        elif choice == '10':
-            # Always save right before closing so we don't lose our work
-            app.save_data() 
-            print("Exiting system. Goodbye!")
-            break
-        else:
-            print("Invalid choice. Please pick a number from 1 to 10.")
+    choice = input("\nEnter your choice (1-10): ")
+    
+    if choice == '1':
+        app.add_vehicle()
+    elif choice == '2':
+        app.display_vehicles()
+    elif choice == '3':
+        app.search_vehicle()
+    elif choice == '4':
+        app.register_customer()
+    elif choice == '5':
+        app.display_customers()
+    elif choice == '6':
+        app.rent_vehicle()
+    elif choice == '7':
+        app.return_vehicle()
+    elif choice == '8':
+        app.display_active_rentals()
+    elif choice == '9':
+        app.save_data()
+    elif choice == '10':
+        # Always save right before closing so we don't lose our work
+        app.save_data() 
+        print("Exiting system. Goodbye!")
+        break
+    else:
+        print("Invalid choice. Please pick a number from 1 to 10.")
