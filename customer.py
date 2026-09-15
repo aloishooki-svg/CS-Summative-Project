@@ -1,15 +1,13 @@
 # The Customer class represents a customer in the vehicle management system. Each customer object has its own personal details that will store information about the customer. 
 # The customer class also does not contain the list of rented vehicles, as this information can be found in the rental class.
 class Customer:
-    def __init__(self, customer_id, customer_name, phone_number,email, driver_license):
-        #Adding validation to customer_id, customer_name, driver_license, and phone_number to ensure that an incomplete customer records are not
-        #stored in the system.
+    def __init__(self, customer_id, customer_name, phone_number, email=None, driver_license=None):
+        #Adding validation to customer_id, customer_name, and phone_number to ensure that an incomplete customer records are not
+        #stored in the system. email and driver_license are optional since main.py's registration flow does not currently collect them.
         if not customer_id:
             raise ValueError("Customer ID cannot be empty.")
         if not customer_name:
             raise ValueError("Customer name cannot be empty.")
-        if not driver_license:
-            raise ValueError("Driver license cannot be empty.")
         if not phone_number:
             raise ValueError("Phone number cannot be empty.")
 
@@ -20,10 +18,18 @@ class Customer:
         self.driver_license = driver_license
 
     # Display the customer information in a format that will be easy to read by the user.
-    def display_customer_info(self):
+    def display_details(self):
         print(f"Customer ID: {self.customer_id}")
         print(f"Customer Name: {self.customer_name}")
         print(f"Phone Number: {self.phone_number}")
         print(f"Email Address: {self.email}")
         print(f"Driver License: {self.driver_license}")
 
+    def to_dictionary(self):
+        return {
+            "customer_id": self.customer_id,
+            "customer_name": self.customer_name,
+            "phone_number": self.phone_number,
+            "email": self.email,
+            "driver_license": self.driver_license
+        }

@@ -1,24 +1,46 @@
 class Vehicle:
-    def __init__(self, vehicle_id= None,make=None , model=None):
+    def __init__(self, vehicle_id=None, registration=None, make=None, model=None, daily_rate=0.0, is_available=True):
         #initializes these variables only
         self.vehicle_id = vehicle_id
+        self.registration = registration
         self.make = make
         self.model = model
-        self.rented_vehicle = False
+        self.daily_rate = float(daily_rate)
+        self.is_available = is_available
 
     def create_a_new_vehicle(self):
-        self.vehicle_id= input("Enter vehicle id: ")
-        self.make= input("Enter make : ").lower()
-        self.model= input("Enter model : ").upper()
+        self.vehicle_id = input("Enter vehicle id: ")
+        self.registration = input("Enter registration number: ")
+        self.make = input("Enter make : ").lower()
+        self.model = input("Enter model : ").upper()
+        self.daily_rate = float(input("Enter daily rate: "))
 
     def rent_a_vehicle(self):
-        self.rented_vehicle = True
+        self.is_available = False
         #prevent a rented vehicle from being rented
 
-
     def return_a_vehicle(self):
-        pass
+        self.is_available = True
 
-    def search_for_vehicle(self):
-        pass
+    def search_for_vehicle(self, search_term):
+        # Checks this vehicle's own ID and registration against the search term.
+        # Returns True (and prints the details) if it's a match, False otherwise,
+        # so RentalSystem.search_vehicle() can just loop over vehicles and ask each one.
+        if self.vehicle_id == search_term or self.registration == search_term:
+            self.display_details()
+            return True
+        return False
 
+    def display_details(self):
+        status = "Available" if self.is_available else "Rented"
+        print(f"Vehicle ID: {self.vehicle_id} | Registration: {self.registration} | Make: {self.make} | Model: {self.model} | Daily Rate: ${self.daily_rate} | Status: {status}")
+
+    def to_dictionary(self):
+        return {
+            "vehicle_id": self.vehicle_id,
+            "registration": self.registration,
+            "make": self.make,
+            "model": self.model,
+            "daily_rate": self.daily_rate,
+            "is_available": self.is_available
+        }
