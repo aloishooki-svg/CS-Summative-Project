@@ -8,12 +8,7 @@ class Vehicle:
         self.daily_rate = float(daily_rate)
         self.is_available = is_available
 
-    def create_a_new_vehicle(self):
-        self.vehicle_id = input("Enter vehicle id: ")
-        self.registration = input("Enter registration number: ")
-        self.make = input("Enter make : ").lower()
-        self.model = input("Enter model : ").upper()
-        self.daily_rate = float(input("Enter daily rate: "))
+#removed creating a new vehicle(within main)
 
     def rent_a_vehicle(self):
         self.is_available = False

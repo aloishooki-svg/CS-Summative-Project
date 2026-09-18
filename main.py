@@ -218,7 +218,8 @@ class RentalSystem:
         total_cost = new_rental.calculate_cost(car.daily_rate)
         
         # Update the car's status so it can't be rented again
-        car.is_available = False 
+        #instead of assigning is_available to false, I just called the function as it is in main
+        car.rent_a_vehicle()
         
         self.rentals.append(new_rental)
         print(f"Rental successful! The total cost will be ${total_cost}")
@@ -244,7 +245,8 @@ class RentalSystem:
         # Find the car and make it available for the next customer
         car = self.get_vehicle_by_id(rental_record.vehicle_id)
         if car != None:
-            car.is_available = True
+            #calls this fuction so that it makes the car available
+            car.return_a_vehicle()
             
         print(f"Vehicle returned! Customer owes: ${rental_record.total_cost}")
 
