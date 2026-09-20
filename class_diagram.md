@@ -1,4 +1,4 @@
- ```mermaid
+```mermaid
 classDiagram
 
     class RentalSystem {
@@ -65,6 +65,7 @@ classDiagram
 
     Rental "many" --> "1" Vehicle : uses
     Rental "many" --> "1" Customer : connects
+    
 ```
 
 ## How the classes work together
@@ -78,6 +79,4 @@ classDiagram
 **Rental** represents a rental transaction. It connects a customer with a vehicle and records details such as the number of rental days, total cost, and whether the rental is still active.
 
 In simple terms, **RentalSystem manages everything, Vehicle stores vehicle information, Customer stores customer information, and Rental connects a customer to a vehicle when a rental takes place.**
-
-
 
